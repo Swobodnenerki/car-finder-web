@@ -1,0 +1,22 @@
+.main-background{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../static/mercedes-klasy-s-2021-w223-przód\ \(1\).jpg) no-repeat;
+    background-color: rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+.main-background2{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../static/pexels-lloyd-freeman-1429775.jpg) no-repeat;
+    background-color: rgba(0,0,0,0.5);
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
