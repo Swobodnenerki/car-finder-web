@@ -6,28 +6,28 @@ import CarConfigureService from '../services/CarConfigureService';
 import { Link } from 'react-router-dom';
 import * as Const from '../static/const';
 import axios from 'axios';
-class CarConfigureModelPage extends React.Component{
+class CarConfigureGearboxPage extends React.Component{
 
     constructor() {
         super();
         this.state = {
-            model: [],
+            gearbox: [],
         };
       }
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/configure/byBrand/${sessionStorage.brand}`  
+        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/byFuelType/byEngine/${sessionStorage.brand}/${sessionStorage.model}/${sessionStorage.type}/${sessionStorage.fuelType}/${sessionStorage.engine}`  
             )
           .then(res => {
-             const model = res.data
+             const gearbox = res.data
              console.log(res.data)
              this.setState({
-                 model: model
+                gearbox: gearbox
            })
          })
 
     }
-    handleClick(model) {
-        CarConfigureService.setModel(model)
+    handleClick(gearbox) {
+        CarConfigureService.setGearbox(gearbox)
       }
     updateState = (name, value) => {
         this.setState({ [name]: value });
@@ -37,12 +37,12 @@ class CarConfigureModelPage extends React.Component{
             <div>
                 <Navbar/>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', width:'20%', backgroundColor: "transparent"}}></Container>
-                <div style={{color: "black", fontSize: 20, fontWeight: "bold", textAlign: 'center'}}>Choose a model</div>
+                <div style={{color: "black", fontSize: 20, fontWeight: "bold", textAlign: 'center'}}>Choose a gearbox</div>
                 
                 <Container fluid style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
                         <ListGroup>
-                            {this.state.model && this.state.model.map((item)=>(
-                            <Link to="/configure/type" style={{color: 'white'}}onClick={this.handleClick.bind(this,item)}>
+                            {this.state.gearbox && this.state.gearbox.map((item)=>(
+                            <Link to="/configure/trim" style={{color: 'white'}}onClick={this.handleClick.bind(this,item)}>
                                 <ListGroup.Item key={item.id} style={{backgroundColor: '#5cb85c', textAlign: 'center', fontSize: '20', paddingLeft: '50px', paddingRight: '50px'}}>{item}</ListGroup.Item>
                             </Link>
                             ))}
@@ -54,4 +54,4 @@ class CarConfigureModelPage extends React.Component{
     }
 
 }
-export default CarConfigureModelPage;
+export default CarConfigureGearboxPage;

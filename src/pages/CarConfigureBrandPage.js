@@ -30,7 +30,7 @@ class CarConfigureBrandPage extends React.Component{
          
      }
      handleClick(brand) {
-        CarConfigureService.selectBrand(brand)
+        CarConfigureService.setBrand(brand)
       }
 
      updateState = (name, value) => {
