@@ -12,8 +12,12 @@ export const selectedGearbox = 'gearbox';
 export const selectedTrim = 'trim';
 export const selectedColour = 'colour';
 export const selectedPrice = 'price';
+export const selectedAdvert = 'advertId';
 class CarConfigureService{
     
+    async setAdertId(advertId) {        
+        sessionStorage.setItem(selectedAdvert, advertId)
+    }
 
     async setBrand(brand) {        
         sessionStorage.setItem(selectedBrand, brand)

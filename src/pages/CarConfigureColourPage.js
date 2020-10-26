@@ -42,7 +42,7 @@ class CarConfigureColourPage extends React.Component{
                 <Container fluid style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
                         <ListGroup>
                             {this.state.colour && this.state.colour.map((item)=>(
-                            <Link to="#/configure/list" style={{color: 'white'}}onClick={this.handleClick.bind(this,item)}>
+                            <Link to="/configure/adverts" style={{color: 'white'}}onClick={this.handleClick.bind(this,item)}>
                                 <ListGroup.Item key={item.id} style={{backgroundColor: '#5cb85c', textAlign: 'center', fontSize: '20', paddingLeft: '50px', paddingRight: '50px'}}>{item}</ListGroup.Item>
                             </Link>
                             ))}

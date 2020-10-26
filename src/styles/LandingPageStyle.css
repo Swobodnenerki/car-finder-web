@@ -20,3 +20,8 @@
     margin: 0;
     padding: 0;
 }
+.MuiGridListTileBar-title{
+    color: #5cb85c;
+    font-size: 40;
+    font-weight: bold;
+}
