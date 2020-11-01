@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import * as Const from '../static/const';
 import axios from 'axios';
 import {GridList, GridListTile, GridListTileBar, ButtonBase, ListSubheader, Grid, Paper} from '@material-ui/core';
+import { render } from '@testing-library/react';
 class AdvertDetailsPage extends React.Component{
 
     constructor() {
@@ -31,7 +32,9 @@ class AdvertDetailsPage extends React.Component{
             textPhone: "Display number",
             textEmail: "Display email",
             textFollow: "",
-            checkInterest: false
+            checkInterest: false,
+            dealerId: "",
+            creator: false
         };
       }
 
@@ -57,7 +60,8 @@ class AdvertDetailsPage extends React.Component{
                 street: advert.dealerByDealerid.street,
                 streetNumber: advert.dealerByDealerid.streetNumber,
                 phone: advert.dealerByDealerid.usersByUserid.phone,
-                email: advert.dealerByDealerid.usersByUserid.email
+                email: advert.dealerByDealerid.usersByUserid.email,
+                dealerId: advert.dealerByDealerid.id
            })
          })
 
@@ -87,7 +91,26 @@ class AdvertDetailsPage extends React.Component{
              }
              
          })
+         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${sessionStorage.loggedID}`  
+            )
+          .then(res => {
+             const dealerId = res.data
+             console.log(res.data)
+             if(dealerId == this.state.dealerId){
+                this.setState({
+                    creator: true,
+                  });
+             }
+         })
 
+
+    }
+    ifcostam(){
+        if(this.state.creator === true)
+            return(
+                <Button>zajebiscie</Button>
+            );
+        
     }
     handleFollow = (textFollow) =>{
         if(textFollow == "Follow"){
@@ -157,6 +180,7 @@ class AdvertDetailsPage extends React.Component{
                                 <p style={{fontSize: 20, fontWeight: 'bold'}}>{this.state.brand} {this.state.model}</p>
                                 <p style={{fontSize: 30, fontWeight: 'bold', color: '#5cb85c'}}>{this.state.price} PLN</p>
                                 <div style={{height: 130}}></div>
+                                {this.ifcostam()}
                                 <Button variant="primary"  onClick={() => {this.handleFollow(this.state.textFollow)}} style={{fontSize: 20, color: '#white', width: 300}}>{this.state.textFollow}</Button>
                                 <div style={{height: 10}}></div>
                                 <Button variant="success" onClick={ () => { this.changeTextPhone(this.state.phone)}  } style={{fontSize: 20, color: '#white', width: 300}}>{this.state.textPhone}</Button>

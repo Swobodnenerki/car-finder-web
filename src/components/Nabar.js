@@ -34,10 +34,10 @@ class NavbarHome extends React.Component{
         if(this.state.isDealer == 0){
         return(
                 <Navbar bg="primary" variant="dark" style={{height: '9%'}}>
-                    <Navbar.Brand href="/homepage" style={{color: "white", fontWeight: "bold", fontSize: "36"}}>CarFinder</Navbar.Brand>
+                    <Navbar.Brand href="/homepage" style={{color: "white", fontWeight: "bold", fontSize: "36"}}><Link to="/homepage" style={{color: "white"}}>CarFinder</Link></Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home" style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Favorite</Nav.Link>
-                        <Nav.Link href="#link" style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Select a car</Nav.Link>
+                        <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/followed" style={{color: "white"}}>Followed</Link></Nav.Link>
+                        <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/configure/brand" style={{color: "white"}}>Select a car</Link></Nav.Link>
                     </Nav>
                     <Link to="#account"><PersonCircle color="white" size={40} /></Link>
                 </Navbar>
@@ -45,11 +45,11 @@ class NavbarHome extends React.Component{
         }
         return(
                 <Navbar bg="primary" variant="dark" style={{height: '9%'}}>
-                    <Navbar.Brand href="/homepage" style={{color: "white", fontWeight: "bold", fontSize: "36"}}>CarFinder</Navbar.Brand>
+                    <Navbar.Brand href="/homepage" style={{color: "white", fontWeight: "bold", fontSize: "36"}}><Link to="/homepage" style={{color: "white"}}>CarFinder</Link></Navbar.Brand>
                     <Nav className="mr-auto" >
-                        <Nav.Link href="#home" style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Favorite</Nav.Link>
-                        <Nav.Link href="#link" style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Select a car</Nav.Link>
-                        <Nav.Link href="#link2" style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Add new a car</Nav.Link>
+                    <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/followed" style={{color: "white"}}>Followed</Link></Nav.Link>
+                    <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/configure/brand" style={{color: "white"}}>Select a car</Link></Nav.Link>
+                    <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/add" style={{color: "white"}}>New advert</Link></Nav.Link>
                     </Nav>
                     <Link to="#account"><PersonCircle color="white" size={40} /></Link>
                 </Navbar>

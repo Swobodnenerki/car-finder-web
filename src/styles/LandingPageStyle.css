@@ -22,6 +22,6 @@
 }
 .MuiGridListTileBar-title{
     color: #5cb85c;
-    font-size: 40;
+    font-size: 25 !important;
     font-weight: bold;
 }
