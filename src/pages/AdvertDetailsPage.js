@@ -3,7 +3,7 @@ import {Button, Nav, Form, Card, FormControl, Container, ListGroup, Jumbotron, R
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from '../components/Nabar';
 import CarConfigureService from '../services/CarConfigureService';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import * as Const from '../static/const';
 import axios from 'axios';
 import {GridList, GridListTile, GridListTileBar, ButtonBase, ListSubheader, Grid, Paper} from '@material-ui/core';
@@ -34,7 +34,8 @@ class AdvertDetailsPage extends React.Component{
             textFollow: "",
             checkInterest: false,
             dealerId: "",
-            creator: false
+            creator: false,
+            deleteSuccessful: false,
         };
       }
 
@@ -69,6 +70,7 @@ class AdvertDetailsPage extends React.Component{
             )
           .then(res => {
              const photo = res.data
+             console.log(sessionStorage.dealerId)
              console.log(res.data)
              this.setState({
                 url: photo.url
@@ -106,11 +108,35 @@ class AdvertDetailsPage extends React.Component{
 
     }
     ifcostam(){
-        if(this.state.creator === true)
+        console.log(sessionStorage.dealerId)
+        console.log(this.state.dealerId)
+        if(sessionStorage.dealerId == this.state.dealerId){
             return(
-                <Button>zajebiscie</Button>
+                // <Link to='/configure/adverts'><Button variant='primary' onClick={this.handleDelete} style={{fontSize: 20, color: '#white', width: 300}}>Delete</Button></Link>
+                <Button variant='primary' onClick={this.handleDelete} style={{fontSize: 20, color: '#white', width: 300}}>Delete</Button>
             );
+        }
+        else{
+            return(
+                <div style={{height: 50}}></div>
+            );
+        }
         
+             
+    }
+    // handleDelete(){
+    //     axios.delete(`${Const.API_URL}api/adverts/delete/${sessionStorage.advertId}`)
+    //   .then((res) => {
+    //   });
+    // }
+    handleDelete =  (e) => {
+        e.preventDefault();
+        axios.delete(`${Const.API_URL}api/adverts/delete/${sessionStorage.advertId}`).then((res)=>
+        {
+            this.setState({
+                deleteSuccessful: true,
+            })
+        });
     }
     handleFollow = (textFollow) =>{
         if(textFollow == "Follow"){
@@ -144,23 +170,13 @@ class AdvertDetailsPage extends React.Component{
         this.setState({ [name]: value });
       };
     render(){
+        if (this.state.deleteSuccessful === true) {
+            return <Redirect to='/homepage'/>
+          }
         return(
             <div>
                 <Navbar/>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '8%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: 'grey'}}></Container> 
-                {/* <div class="container" style={{}}>
-                    <div class="row">
-                        <div class="col-8" style={{backgroundColor: 'yellow', height: 400}}>col-sm-8</div>
-                        <div class="col-1" style={{backgroundColor: 'white', height: 400}}>col-sm-3</div>
-                        <div class="col-3" style={{backgroundColor: 'blue', height: 400}}>col-sm-3</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm" style={{backgroundColor: 'white', height: 50}}>col-sm</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm" style={{backgroundColor: 'orange', height: 200}}>col-sm</div>
-                    </div>
-                </div> */}
                 <Container fluid style={{flexGrow: 1, width: 1000, display: "flex",justifyContent: "center",alignItems: "center"}}>
                     <Grid container spacing={2}>
                         <Grid item xs={8}>
@@ -179,13 +195,15 @@ class AdvertDetailsPage extends React.Component{
                             <Paper style={{textAlign: 'center', backgroundColor: 'white', boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", height: 400}}>
                                 <p style={{fontSize: 20, fontWeight: 'bold'}}>{this.state.brand} {this.state.model}</p>
                                 <p style={{fontSize: 30, fontWeight: 'bold', color: '#5cb85c'}}>{this.state.price} PLN</p>
-                                <div style={{height: 130}}></div>
+                                <div style={{height: 70}}></div>
                                 {this.ifcostam()}
+                                <div style={{height: 10}}></div>
                                 <Button variant="primary"  onClick={() => {this.handleFollow(this.state.textFollow)}} style={{fontSize: 20, color: '#white', width: 300}}>{this.state.textFollow}</Button>
                                 <div style={{height: 10}}></div>
                                 <Button variant="success" onClick={ () => { this.changeTextPhone(this.state.phone)}  } style={{fontSize: 20, color: '#white', width: 300}}>{this.state.textPhone}</Button>
                                 <div style={{height: 10}}></div>
                                 <Button variant="success" onClick={ () => { this.changeTextEmail(this.state.email)}  } style={{fontSize: 20, color: '#white', width: 300}}>{this.state.textEmail}</Button>
+                                
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>

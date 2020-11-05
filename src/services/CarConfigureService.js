@@ -13,8 +13,12 @@ export const selectedTrim = 'trim';
 export const selectedColour = 'colour';
 export const selectedPrice = 'price';
 export const selectedAdvert = 'advertId';
+export const logged_dealer = 'dealerId'
 class CarConfigureService{
-    
+    async setDealerId(dealerId) {        
+        sessionStorage.setItem(logged_dealer, dealerId)
+    }
+
     async setAdertId(advertId) {        
         sessionStorage.setItem(selectedAdvert, advertId)
     }

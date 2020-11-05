@@ -5,6 +5,7 @@ import {PersonCircle} from "react-bootstrap-icons"
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import * as Const from '../static/const';
+import CarConfigureService from '../services/CarConfigureService';
 class NavbarHome extends React.Component{
     constructor(props){
         super(props);
@@ -24,7 +25,15 @@ class NavbarHome extends React.Component{
                isDealer: status
            })
          })
+         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${sessionStorage.loggedID}`  
+         )
+       .then(res => {
+          const status = res.data
+          console.log(res.data)
+          CarConfigureService.setDealerId(status)
+      })
      }
+     
 
     updateState = (name, value) => {
         this.setState({[name]: value})
