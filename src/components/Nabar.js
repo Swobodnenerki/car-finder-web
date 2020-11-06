@@ -16,7 +16,7 @@ class NavbarHome extends React.Component{
     }
 
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/dealerByAccountId/${sessionStorage.loggedID}`  
+        axios.get(`${Const.API_URL}api/dealerByAccountId/${localStorage.loggedID}`  
             )
           .then(res => {
              const status = res.data
@@ -25,7 +25,7 @@ class NavbarHome extends React.Component{
                isDealer: status
            })
          })
-         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${sessionStorage.loggedID}`  
+         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${localStorage.loggedID}`  
          )
        .then(res => {
           const status = res.data
@@ -39,7 +39,7 @@ class NavbarHome extends React.Component{
         this.setState({[name]: value})
     }
     render(){
-        console.log(sessionStorage.loggedID)
+        console.log(localStorage.loggedID)
         if(this.state.isDealer == 0){
         return(
                 <Navbar bg="primary" variant="dark" style={{height: '9%'}}>

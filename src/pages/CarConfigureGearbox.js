@@ -15,7 +15,7 @@ class CarConfigureGearboxPage extends React.Component{
         };
       }
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/byFuelType/byEngine/${sessionStorage.brand}/${sessionStorage.model}/${sessionStorage.type}/${sessionStorage.fuelType}/${sessionStorage.engine}`  
+        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/byFuelType/byEngine/${localStorage.brand}/${localStorage.model}/${localStorage.type}/${localStorage.fuelType}/${localStorage.engine}`  
             )
           .then(res => {
              const gearbox = res.data

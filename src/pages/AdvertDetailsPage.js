@@ -41,7 +41,7 @@ class AdvertDetailsPage extends React.Component{
 
 
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/adverts/byId/${sessionStorage.advertId}`  
+        axios.get(`${Const.API_URL}api/adverts/byId/${localStorage.advertId}`  
             )
           .then(res => {
              const advert = res.data
@@ -66,17 +66,17 @@ class AdvertDetailsPage extends React.Component{
            })
          })
 
-         axios.get(`${Const.API_URL}api/adverts/photo/byAdvertId/${sessionStorage.advertId}`  
+         axios.get(`${Const.API_URL}api/adverts/photo/byAdvertId/${localStorage.advertId}`  
             )
           .then(res => {
              const photo = res.data
-             console.log(sessionStorage.dealerId)
+             console.log(localStorage.dealerId)
              console.log(res.data)
              this.setState({
                 url: photo.url
            })
          })
-         axios.get(`${Const.API_URL}api/interest/checkIfUserIsInterested/${sessionStorage.loggedID}/${sessionStorage.advertId}`  
+         axios.get(`${Const.API_URL}api/interest/checkIfUserIsInterested/${localStorage.loggedID}/${localStorage.advertId}`  
             )
           .then(res => {
              const interest = res.data
@@ -93,7 +93,7 @@ class AdvertDetailsPage extends React.Component{
              }
              
          })
-         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${sessionStorage.loggedID}`  
+         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${localStorage.loggedID}`  
             )
           .then(res => {
              const dealerId = res.data
@@ -108,9 +108,9 @@ class AdvertDetailsPage extends React.Component{
 
     }
     ifcostam(){
-        console.log(sessionStorage.dealerId)
+        console.log(localStorage.dealerId)
         console.log(this.state.dealerId)
-        if(sessionStorage.dealerId == this.state.dealerId){
+        if(localStorage.dealerId == this.state.dealerId){
             return(
                 <Button variant='primary' onClick={this.handleDelete} style={{fontSize: 20, color: '#white', width: 300}}>Delete</Button>
             );
@@ -125,7 +125,7 @@ class AdvertDetailsPage extends React.Component{
     }
     handleDelete =  (e) => {
         e.preventDefault();
-        axios.delete(`${Const.API_URL}api/adverts/delete/${sessionStorage.advertId}`).then((res)=>
+        axios.delete(`${Const.API_URL}api/adverts/delete/${localStorage.advertId}`).then((res)=>
         {
             this.setState({
                 deleteSuccessful: true,
@@ -135,8 +135,8 @@ class AdvertDetailsPage extends React.Component{
     handleFollow = (textFollow) =>{
         if(textFollow == "Follow"){
             axios.post(`${Const.API_URL}api/interest`, {
-                advertId: sessionStorage.advertId,
-                accountId: sessionStorage.loggedID
+                advertId: localStorage.advertId,
+                accountId: localStorage.loggedID
       }).then((res) => {
         console.log(res.data);
         this.setState({ textFollow: "Unfollow" });
@@ -144,7 +144,7 @@ class AdvertDetailsPage extends React.Component{
       });
         }
         if(textFollow == "Unfollow"){
-            axios.delete(`${Const.API_URL}api/interest/byUserInterested/${sessionStorage.loggedID}/${sessionStorage.advertId}`
+            axios.delete(`${Const.API_URL}api/interest/byUserInterested/${localStorage.loggedID}/${localStorage.advertId}`
       ).then((res) => {
         this.setState({ textFollow: "Follow" });
       });

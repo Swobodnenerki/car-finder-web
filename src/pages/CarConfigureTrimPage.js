@@ -15,7 +15,7 @@ class CarConfigureTrimPage extends React.Component{
         };
       }
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/byFuelType/byEngine/byGearbox/${sessionStorage.brand}/${sessionStorage.model}/${sessionStorage.type}/${sessionStorage.fuelType}/${sessionStorage.engine}/${sessionStorage.gearbox}`  
+        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/byFuelType/byEngine/byGearbox/${localStorage.brand}/${localStorage.model}/${localStorage.type}/${localStorage.fuelType}/${localStorage.engine}/${localStorage.gearbox}`  
             )
           .then(res => {
              const trim = res.data

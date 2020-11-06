@@ -21,7 +21,7 @@ class DealersAdvertsPage extends React.Component{
 
     componentDidMount() {
 
-        axios.get(`${Const.API_URL}api/adverts/dealer/${sessionStorage.dealerId}`  
+        axios.get(`${Const.API_URL}api/adverts/dealer/${localStorage.dealerId}`  
             )
           .then(res => {
              const adverts = res.data

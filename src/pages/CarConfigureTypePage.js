@@ -15,8 +15,8 @@ class CarConfigureTypePage extends React.Component{
         };
       }
     componentDidMount() {
-        console.log(sessionStorage.model)
-        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/${sessionStorage.brand}/${sessionStorage.model}`  
+        console.log(localStorage.model)
+        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/${localStorage.brand}/${localStorage.model}`  
             )
           .then(res => {
              const type = res.data

@@ -21,7 +21,7 @@ class FollowedAdvertsPage extends React.Component{
 
     componentDidMount() {
 
-        axios.get(`${Const.API_URL}api/adverts/interested/${sessionStorage.loggedID}`  
+        axios.get(`${Const.API_URL}api/adverts/interested/${localStorage.loggedID}`  
             )
           .then(res => {
              const adverts = res.data

@@ -192,7 +192,7 @@ class NewAdvertPage extends React.Component{
             colour: colour,
             price: price,
             url: url,
-            dealerId: sessionStorage.dealerId
+            dealerId: localStorage.dealerId
 
         });
     }

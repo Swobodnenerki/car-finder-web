@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import * as Const from '../static/const';
 
 export const logged_username = 'loggedUser';
@@ -16,49 +17,41 @@ class AuthorizationService{
     }
 
     createBasicAuthToken(username, password) {
-        return 'Basic ' + window.btoa(username + ":" + password)
+        var token = "Basic " + window.btoa(username + ":" + password);
+        localStorage.setItem("token", token);
+        return token;
     }
 
     async registerSuccessfulLogin(login,password) {        
-        sessionStorage.setItem(logged_username, login)        
-        this.setupAxiosInterceptors(this.createBasicAuthToken(login,password))
+        localStorage.setItem(logged_username, login)        
+        this.createBasicAuthToken(login, password);
         await axios.get(`${Const.API_URL}api/session`).then(
             async (res) => {
                 const userId = res.data.userId;
-                await sessionStorage.setItem(logged_userid,userId);                
+                await localStorage.setItem(logged_userid,userId);                
             }
         ).catch((error) => console.log(error))
     }
-    setupAxiosInterceptors(token) {
-        axios.interceptors.request.use(
-            (config) => {
-                if (this.isUserLoggedIn()) {
-                    config.headers.authorization = token
-                }
-                return config
-            }
-        )
-    }
-
+    
     logout() {
-        sessionStorage.removeItem(logged_username);
-        sessionStorage.removeItem(logged_userid);
+        localStorage.removeItem(logged_username);
+        localStorage.removeItem(logged_userid);
     }
 
     isUserLoggedIn() {
-        let user = sessionStorage.getItem(logged_username)
+        let user = localStorage.getItem(logged_username)
         if (user === null) return false
         return true
     }
 
     getLoggedInUserName() {
-        let user = sessionStorage.getItem(logged_username)
+        let user = localStorage.getItem(logged_username)
         if (user === null) return ''
         return user
     }
 
     getLoggedInUserId() {
-        let id = sessionStorage.getItem(logged_userid);
+        let id = localStorage.getItem(logged_userid);
         if(id === null) return '';
         return id;
     }
