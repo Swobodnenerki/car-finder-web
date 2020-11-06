@@ -46,7 +46,7 @@ class FollowedAdvertsPage extends React.Component{
             <div>
                 <Navbar/>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '2%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: '#d9534f'}}></Container> 
-                <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: 'black',boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", width: 770 }}><p>Offers that you followed:</p></Container>
+                <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', backgroundColor: "transparent", fontSize: 25, fontWeight: 'bold', color: 'black',boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", width: 770 }}><p>Offers that you followed:</p></Container>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '2%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: '#d9534f'}}></Container>        
                 <Container style={{justifyContent: "center",alignItems: "center", width: '800px', backgroundColor: 'transparent'}}>
                 <div style={{display: 'flex',
@@ -61,7 +61,8 @@ class FollowedAdvertsPage extends React.Component{
                                 <img src={tile.url} alt={tile.price} style={{backgroundSize: 'cover',backgroundPosition: 'center'}}/>
                                 
                                 <GridListTileBar 
-                                title={<span >Total price: {tile.price} PLN</span>}
+                                subtitle={<span>{tile.brand} {tile.model} {tile.engine}</span>}
+                                title={<span>Total price: {tile.price} PLN</span>}
                                 />
                                 
                             </GridListTile>

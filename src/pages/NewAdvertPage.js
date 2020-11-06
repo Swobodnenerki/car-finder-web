@@ -222,13 +222,14 @@ class NewAdvertPage extends React.Component{
       };
     render(){
         if (this.state.addSuccessful === true) {
-            return <Redirect to='/homepage'/>
+            return <Redirect to='/advert/dealer'/>
           }
         return(
             <div>
                 <Navbar/>
                 <div style={{height: "30px"}}></div>
                 <Container fluid style={{justifyContent: "center",maxHeight: '650px', maxWidth:'750px', backgroundColor: "white", boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)"}}>
+                <div style={{height: "20px"}}></div>
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Row>
                         <Form.Group controlId="formGridState" as={Col}>
@@ -318,7 +319,11 @@ class NewAdvertPage extends React.Component{
                             </Form.Control>  
                         </Form.Group>
                     </Form.Row>
+                    <div style={{height: "20px"}}></div>
+                    <div style={{display: "flex",justifyContent: "center",alignItems: "center"}}>
                     <Button variant="success" type="submit" style={{fontSize: 20, fontWeight: "bold", paddingRight: 80, paddingLeft: 80}}>Add new advert</Button>
+                    </div>
+                    <div style={{height: "20px"}}></div>
                 </Form>
                 </Container>
             </div>

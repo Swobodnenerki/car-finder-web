@@ -23,6 +23,7 @@ import AdvertPage from './pages/AdvertPage';
 import AdvertDetailsPage from './pages/AdvertDetailsPage';
 import FollowedAdvertsPage from './pages/FollowedAdvertsPage';
 import NewAdvertPage from './pages/NewAdvertPage';
+import DealersAdvertsPage from './pages/DealersAdvertsPage';
 class App extends React.Component {
   render(){
     return (
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route exact path="/advert/details" component={AdvertDetailsPage}/>
             <Route exact path="/advert/followed" component={FollowedAdvertsPage}/>
             <Route exact path="/advert/add" component={NewAdvertPage}/>
+            <Route exact path="/advert/dealer" component={DealersAdvertsPage}/>
             <Route exect path="/" component={LandingPage}/>
           </Switch>
         </Router>

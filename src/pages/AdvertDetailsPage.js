@@ -112,7 +112,6 @@ class AdvertDetailsPage extends React.Component{
         console.log(this.state.dealerId)
         if(sessionStorage.dealerId == this.state.dealerId){
             return(
-                // <Link to='/configure/adverts'><Button variant='primary' onClick={this.handleDelete} style={{fontSize: 20, color: '#white', width: 300}}>Delete</Button></Link>
                 <Button variant='primary' onClick={this.handleDelete} style={{fontSize: 20, color: '#white', width: 300}}>Delete</Button>
             );
         }
@@ -124,11 +123,6 @@ class AdvertDetailsPage extends React.Component{
         
              
     }
-    // handleDelete(){
-    //     axios.delete(`${Const.API_URL}api/adverts/delete/${sessionStorage.advertId}`)
-    //   .then((res) => {
-    //   });
-    // }
     handleDelete =  (e) => {
         e.preventDefault();
         axios.delete(`${Const.API_URL}api/adverts/delete/${sessionStorage.advertId}`).then((res)=>
@@ -171,7 +165,7 @@ class AdvertDetailsPage extends React.Component{
       };
     render(){
         if (this.state.deleteSuccessful === true) {
-            return <Redirect to='/homepage'/>
+            return <Redirect to='/advert/dealer'/>
           }
         return(
             <div>
@@ -193,8 +187,8 @@ class AdvertDetailsPage extends React.Component{
                         </Grid>
                         <Grid item xs={4}>
                             <Paper style={{textAlign: 'center', backgroundColor: 'white', boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", height: 400}}>
-                                <p style={{fontSize: 20, fontWeight: 'bold'}}>{this.state.brand} {this.state.model}</p>
-                                <p style={{fontSize: 30, fontWeight: 'bold', color: '#5cb85c'}}>{this.state.price} PLN</p>
+                                <p style={{fontSize: 30, fontWeight: 'bold'}}>{this.state.brand} {this.state.model}</p>
+                                <p style={{fontSize: 25, fontWeight: 'bold', color: '#5cb85c'}}>Price: {this.state.price} PLN</p>
                                 <div style={{height: 70}}></div>
                                 {this.ifcostam()}
                                 <div style={{height: 10}}></div>
@@ -244,19 +238,6 @@ class AdvertDetailsPage extends React.Component{
                         </Grid>
                     </Grid>
                 </Container>
-
-                
-                {/* <Row>
-                    <Col style={{backgroundColor: 'yellow', height: 500, width: 700 }}>
-
-                    </Col>
-                    <Col style={{backgroundColor: 'green', height: 500, width: 200 }}>
-
-                    </Col>
-                </Row>
-                <Row style={{backgroundColor: 'orange', height: 200, width: 900}}>
-
-                </Row> */}
             </div>
         );
     }
