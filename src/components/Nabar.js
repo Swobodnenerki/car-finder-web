@@ -48,7 +48,7 @@ class NavbarHome extends React.Component{
                         <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/followed" style={{color: "white"}}>Followed</Link></Nav.Link>
                         <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/configure/brand" style={{color: "white"}}>Select a car</Link></Nav.Link>
                     </Nav>
-                    <Link to="#account"><PersonCircle color="white" size={40} /></Link>
+                    <Link to="/details"><PersonCircle color="white" size={40} /></Link>
                 </Navbar>
         );    
         }
@@ -61,7 +61,7 @@ class NavbarHome extends React.Component{
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/add" style={{color: "white"}}>New advert</Link></Nav.Link>
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/dealer" style={{color: "white"}}>Yours adverts</Link></Nav.Link>
                     </Nav>
-                    <Link to="#account"><PersonCircle color="white" size={40} /></Link>
+                    <Link to="/details"><PersonCircle color="white" size={40} /></Link>
                 </Navbar>
                 
         );
