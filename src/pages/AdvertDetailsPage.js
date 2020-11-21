@@ -93,7 +93,7 @@ class AdvertDetailsPage extends React.Component{
              }
              
          })
-         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${localStorage.loggedID}`  
+         axios.get(`${Const.API_URL}api/dealerIdByUserId/${localStorage.loggedID}`  
             )
           .then(res => {
              const dealerId = res.data
@@ -125,7 +125,7 @@ class AdvertDetailsPage extends React.Component{
     }
     handleDelete =  (e) => {
         e.preventDefault();
-        axios.delete(`${Const.API_URL}api/adverts/delete/${localStorage.advertId}`).then((res)=>
+        axios.delete(`${Const.API_URL}api/adverts/dealer/${localStorage.advertId}`).then((res)=>
         {
             this.setState({
                 deleteSuccessful: true,
@@ -136,7 +136,7 @@ class AdvertDetailsPage extends React.Component{
         if(textFollow == "Follow"){
             axios.post(`${Const.API_URL}api/interest`, {
                 advertId: localStorage.advertId,
-                accountId: localStorage.loggedID
+                userId: localStorage.loggedID
       }).then((res) => {
         console.log(res.data);
         this.setState({ textFollow: "Unfollow" });
@@ -144,7 +144,7 @@ class AdvertDetailsPage extends React.Component{
       });
         }
         if(textFollow == "Unfollow"){
-            axios.delete(`${Const.API_URL}api/interest/byUserInterested/${localStorage.loggedID}/${localStorage.advertId}`
+            axios.delete(`${Const.API_URL}api/interest/${localStorage.loggedID}/${localStorage.advertId}`
       ).then((res) => {
         this.setState({ textFollow: "Follow" });
       });

@@ -16,7 +16,7 @@ class NavbarHome extends React.Component{
     }
 
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/dealerByAccountId/${localStorage.loggedID}`  
+        axios.get(`${Const.API_URL}api/role/${localStorage.loggedID}`  
             )
           .then(res => {
              const status = res.data
@@ -25,7 +25,7 @@ class NavbarHome extends React.Component{
                isDealer: status
            })
          })
-         axios.get(`${Const.API_URL}api/dealerIdByAccountId/${localStorage.loggedID}`  
+         axios.get(`${Const.API_URL}api/dealerIdByUserId/${localStorage.loggedID}`  
          )
        .then(res => {
           const status = res.data

@@ -38,7 +38,7 @@ class RegisterDealerBox extends React.Component{
     }
     async register(login, email, password, firstName, surname, phoneNumber, name, city, street, streetNumber){
         
-        await axios.post(`${Const.API_URL}api/register`,{
+        await axios.post(`${Const.API_URL}api/registerDealer`,{
             login: login,
             email: email,
             password: password,
