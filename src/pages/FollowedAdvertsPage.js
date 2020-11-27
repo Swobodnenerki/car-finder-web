@@ -49,27 +49,7 @@ class FollowedAdvertsPage extends React.Component{
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', backgroundColor: "transparent", fontSize: 25, fontWeight: 'bold', color: 'black',boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", width: 770 }}><p>Offers that you followed:</p></Container>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '2%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: '#d9534f'}}></Container>        
                 <Container style={{justifyContent: "center",alignItems: "center", width: '800px', backgroundColor: 'transparent'}}>
-                <div style={{display: 'flex',
-                                        flexWrap: 'wrap',
-                                        justifyContent: "center",alignItems: "center",
-                                        overflow: 'hidden'}}>
-                        <GridList cellHeight={400} cols={1} style={{width: '100%', height: '91%'}}>
-                            {this.state.adverts.map((tile) => (
-                            <Link to="/advert/details" onClick={this.handleClick.bind(this,tile.advertId)} style={{width: 765, marginBottom: 10}}>
-                            <GridListTile key={tile.id} style={{width: 765, backgroundColor: '#0275d8'}}>
-                                
-                                <img src={tile.url} alt={tile.price} style={{backgroundSize: 'cover',backgroundPosition: 'center'}}/>
-                                
-                                <GridListTileBar 
-                                subtitle={<span>{tile.brand} {tile.model} {tile.engine}</span>}
-                                title={<span>Total price: {tile.price} PLN</span>}
-                                />
-                                
-                            </GridListTile>
-                            </Link>
-                            ))}
-                        </GridList>
-                        </div>
+                <AdvertList data={this.state} updateState={this.updateState}/>
                 </Container>
                 
             </div>

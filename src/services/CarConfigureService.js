@@ -13,8 +13,13 @@ export const selectedTrim = 'trim';
 export const selectedColour = 'colour';
 export const selectedPrice = 'price';
 export const selectedAdvert = 'advertId';
-export const logged_dealer = 'dealerId'
+export const logged_dealer = 'dealerId';
+export const selectedCity = 'city';
 class CarConfigureService{
+    async setCity(city) {        
+        localStorage.setItem(selectedCity, city)
+    }
+
     async setDealerId(dealerId) {        
         localStorage.setItem(logged_dealer, dealerId)
     }

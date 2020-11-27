@@ -23,27 +23,27 @@ class AdvertList extends React.Component{
       };
     render(){
         return(
-            
-                        <div style={{display: 'flex',
-                                        flexWrap: 'wrap',
-                                        justifyContent: "center",alignItems: "center",
-                                        overflow: 'hidden'}}>
-                        <GridList cellHeight={400} cols={1} style={{width: '100%', height: '91%'}}>
-                            {this.props.data.adverts.map((tile) => (
-                            <Link to="/advert/details" onClick={this.handleClick.bind(this,tile.advertId)} style={{width: 765, marginBottom: 10}}>
-                            <GridListTile key={tile.id} style={{width: 765, backgroundColor: '#0275d8'}}>
-                                
-                                <img src={tile.url} alt={tile.price} style={{backgroundSize: 'cover',backgroundPosition: 'center'}}/>
-                                
-                                <GridListTileBar 
-                                title={<span >You can save: {this.props.data.price-tile.price} PLN</span>}
-                                />
-                                
-                            </GridListTile>
-                            </Link>
-                            ))}
-                        </GridList>
-                        </div>
+          <div style={{display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: "center",alignItems: "center",
+          overflow: 'hidden'}}>
+            <GridList cellHeight={400} cols={1} style={{width: '100%', height: '91%'}}>
+            {this.props.data.adverts.map((tile) => (
+            <Link to="/advert/details" onClick={this.handleClick.bind(this,tile.advertId)} style={{width: 765, marginBottom: 10}}>
+            <GridListTile key={tile.id} style={{width: 765, backgroundColor: '#0275d8'}}>
+              
+              <img src={tile.url} alt={tile.price} style={{backgroundSize: 'cover',backgroundPosition: 'center'}}/>
+              
+              <GridListTileBar 
+              subtitle={<span>{tile.brand} {tile.model} {tile.engine}</span>}
+              title={<span>Total price: {tile.price} PLN</span>}
+              />
+              
+            </GridListTile>
+            </Link>
+            ))}
+            </GridList>
+          </div>
                 
         );
     }

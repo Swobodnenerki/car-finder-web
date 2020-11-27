@@ -61,12 +61,12 @@ class LoginBox extends React.Component{
                     <div style={{height: "40px"}}></div>
                     <Form.Group controlId="formBasicLogin">
                         <Form.Label>Login</Form.Label>
-                        <Form.Control placeholder="Enter login" type="login" placeholder="Enter login" type="login" name="login" id="login" value={this.state.values.login}
+                        <Form.Control placeholder="Enter login" type="login" placeholder="Enter login" type="login" name="login" value={this.state.values.login}
                         onChange={this.handleChange} required/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control placeholder="Enter password" type="password" placeholder="Password" type="password" name="password" id="password" value={this.state.values.password}
+                        <Form.Control placeholder="Enter password" type="password" placeholder="Password" type="password" name="password" value={this.state.values.password}
                         onChange={this.handleChange} required/>
                     </Form.Group>
                     <div style={{height: "20px"}}></div>

@@ -47,22 +47,29 @@ class NavbarHome extends React.Component{
                     <Nav className="mr-auto">
                         <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/followed" style={{color: "white"}}>Followed</Link></Nav.Link>
                         <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/configure/brand" style={{color: "white"}}>Select a car</Link></Nav.Link>
+                        <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/city" style={{color: "white"}}>Search in your area</Link></Nav.Link>
                     </Nav>
-                    <Link to="/details"><PersonCircle color="white" size={40} /></Link>
+                    <Nav.Link><Link to="/details"><PersonCircle color="white" size={40} /></Link></Nav.Link>
                 </Navbar>
+            
         );    
         }
         return(
-                <Navbar bg="primary" variant="dark" style={{height: '9%'}}>
+                <Navbar bg="primary" variant="dark" style={{height: '9%', alignItems: "center", justifyContent: "center"}}>
                     <Navbar.Brand href="/homepage" style={{color: "white", fontWeight: "bold", fontSize: "36"}}><Link to="/homepage" style={{color: "white"}}>CarFinder</Link></Navbar.Brand>
                     <Nav className="mr-auto" >
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/followed" style={{color: "white"}}>Followed</Link></Nav.Link>
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/configure/brand" style={{color: "white"}}>Select a car</Link></Nav.Link>
+                    <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/city" style={{color: "white"}}>Search in your area</Link></Nav.Link>
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/add" style={{color: "white"}}>New advert</Link></Nav.Link>
                     <Nav.Link style={{color: "white", fontWeight: "bold", fontSize: "18"}}><Link to="/advert/dealer" style={{color: "white"}}>Yours adverts</Link></Nav.Link>
+                    
                     </Nav>
-                    <Link to="/details"><PersonCircle color="white" size={40} /></Link>
+                    <Nav.Link><Link to="/details"><PersonCircle color="white" size={40} /></Link></Nav.Link>
+                    
+                    
                 </Navbar>
+                
                 
         );
     }

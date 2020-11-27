@@ -8,7 +8,7 @@ import * as Const from '../static/const';
 import axios from 'axios';
 import {GridList, GridListTile, GridListTileBar, ButtonBase, ListSubheader} from '@material-ui/core';
 import AdvertList from '../components/AdvertList';
-class DealersAdvertsPage extends React.Component{
+class AdvertsByCity extends React.Component{
 
     constructor() {
         super();
@@ -21,7 +21,7 @@ class DealersAdvertsPage extends React.Component{
 
     componentDidMount() {
 
-        axios.get(`${Const.API_URL}api/adverts/dealer/${localStorage.dealerId}`  
+        axios.get(`${Const.API_URL}api/adverts/byCity/${localStorage.city}`  
             )
           .then(res => {
              const adverts = res.data
@@ -46,7 +46,7 @@ class DealersAdvertsPage extends React.Component{
             <div>
                 <Navbar/>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '2%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: '#d9534f'}}></Container> 
-                <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', backgroundColor: "transparent", fontSize: 25, fontWeight: 'bold', color: 'black',boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", width: 770 }}><p>Cars that you offer:</p></Container>
+                <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '10%', backgroundColor: "transparent", fontSize: 25, fontWeight: 'bold', color: 'black',boxShadow: "0px 4px 4px rgba(0,0,0,0.5), 0px -2px 4px rgba(0, 0, 0, 0.25)", width: 770 }}><p>Cars offerd in {localStorage.city}:</p></Container>
                 <Container style={{display: "flex",justifyContent: "center",alignItems: "center",height: '2%', backgroundColor: "transparent", fontSize: 20, fontWeight: 'bold', color: '#d9534f'}}></Container>        
                 <Container style={{justifyContent: "center",alignItems: "center", width: '800px', backgroundColor: 'transparent'}}>
                 <AdvertList data={this.state} updateState={this.updateState}/>
@@ -57,4 +57,4 @@ class DealersAdvertsPage extends React.Component{
     }
 
 }
-export default DealersAdvertsPage;
+export default AdvertsByCity;

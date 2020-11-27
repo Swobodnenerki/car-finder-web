@@ -25,6 +25,9 @@ import FollowedAdvertsPage from './pages/FollowedAdvertsPage';
 import NewAdvertPage from './pages/NewAdvertPage';
 import DealersAdvertsPage from './pages/DealersAdvertsPage';
 import UserDetailsPage from './pages/UserDetailsPage';
+import UserEditDetailsPage from './pages/UserEditDetailsPage';
+import ChooseCityPage from './pages/ChooseCityPage';
+import AdvertsByCity from './pages/AdvertsByCity';
 class App extends React.Component {
   render(){
     return (
@@ -49,6 +52,9 @@ class App extends React.Component {
             <Route exact path="/advert/add" component={NewAdvertPage}/>
             <Route exact path="/advert/dealer" component={DealersAdvertsPage}/>
             <Route exact path="/details" component={UserDetailsPage}/>
+            <Route exact path="/details/edit" component={UserEditDetailsPage}/>
+            <Route exect path="/city" component={ChooseCityPage}/>
+            <Route exect path="/advert/city" component={AdvertsByCity}/>
             <Route exect path="/" component={LandingPage}/>
           </Switch>
         </Router>
