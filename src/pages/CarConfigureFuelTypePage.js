@@ -15,7 +15,7 @@ class CarConfigureFuelTypePage extends React.Component{
         };
       }
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/${sessionStorage.brand}/${sessionStorage.model}/${sessionStorage.type}`  
+        axios.get(`${Const.API_URL}api/configure/byBrand/byModel/byType/${localStorage.brand}/${localStorage.model}/${localStorage.type}`  
             )
           .then(res => {
              const fuelType = res.data

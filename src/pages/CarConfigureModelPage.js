@@ -15,7 +15,7 @@ class CarConfigureModelPage extends React.Component{
         };
       }
     componentDidMount() {
-        axios.get(`${Const.API_URL}api/configure/byBrand/${sessionStorage.brand}`  
+        axios.get(`${Const.API_URL}api/configure/byBrand/${localStorage.brand}`  
             )
           .then(res => {
              const model = res.data

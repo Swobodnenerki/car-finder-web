@@ -11,7 +11,7 @@ class NavbarLandingPage extends React.Component{
                     <Navbar.Brand href="/" style={{color: "white", fontWeight: "bold", fontSize: "36"}}>CarFinder</Navbar.Brand>
                     <Nav className="mr-auto"></Nav>
                     <Nav.Link href="/registerdealer"style={{color: "white", fontWeight: "bold", fontSize: "18"}}>Join our team!</Nav.Link>
-                    <Link to="/login"><PersonCircle color="white" size={40} /></Link>
+                    <Nav.Link><Link to="/login"><PersonCircle color="white" size={40} /></Link></Nav.Link>
                 </Navbar>
                 
         );

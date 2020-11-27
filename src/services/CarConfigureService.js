@@ -13,60 +13,65 @@ export const selectedTrim = 'trim';
 export const selectedColour = 'colour';
 export const selectedPrice = 'price';
 export const selectedAdvert = 'advertId';
-export const logged_dealer = 'dealerId'
+export const logged_dealer = 'dealerId';
+export const selectedCity = 'city';
 class CarConfigureService{
+    async setCity(city) {        
+        localStorage.setItem(selectedCity, city)
+    }
+
     async setDealerId(dealerId) {        
-        sessionStorage.setItem(logged_dealer, dealerId)
+        localStorage.setItem(logged_dealer, dealerId)
     }
 
     async setAdertId(advertId) {        
-        sessionStorage.setItem(selectedAdvert, advertId)
+        localStorage.setItem(selectedAdvert, advertId)
     }
 
     async setBrand(brand) {        
-        sessionStorage.setItem(selectedBrand, brand)
+        localStorage.setItem(selectedBrand, brand)
     }
 
     async setModel(model) {        
-        sessionStorage.setItem(selectedModel, model)
+        localStorage.setItem(selectedModel, model)
     }
 
     async setType(type) {        
-        sessionStorage.setItem(selectedType, type)
+        localStorage.setItem(selectedType, type)
     }
 
     async setFuelType(fuelType) {        
-        sessionStorage.setItem(selectedFuelType, fuelType)
+        localStorage.setItem(selectedFuelType, fuelType)
     }
     
     async setEngine(engine) {        
-        sessionStorage.setItem(selectedEngine, engine)
+        localStorage.setItem(selectedEngine, engine)
     }
    
     async setGearbox(gerabox) {        
-        sessionStorage.setItem(selectedGearbox, gerabox)
+        localStorage.setItem(selectedGearbox, gerabox)
     }
 
     async setTrim(trim) {        
-        sessionStorage.setItem(selectedTrim, trim)
+        localStorage.setItem(selectedTrim, trim)
     }
 
     async setColour(colour) {        
-        sessionStorage.setItem(selectedColour, colour)
+        localStorage.setItem(selectedColour, colour)
     }
 
     async setPrice(price) {        
-        sessionStorage.setItem(selectedPrice, price)
+        localStorage.setItem(selectedPrice, price)
     }
 
     getBrand() {
-        let brand = sessionStorage.getItem(selectedBrand)
+        let brand = localStorage.getItem(selectedBrand)
         if (brand === null) return ''
         return brand
     }
 
     getModel() {
-        let model = sessionStorage.getItem(selectedModel)
+        let model = localStorage.getItem(selectedModel)
         if (model === null) return ''
         return model
     }

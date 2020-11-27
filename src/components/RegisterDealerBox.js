@@ -38,7 +38,7 @@ class RegisterDealerBox extends React.Component{
     }
     async register(login, email, password, firstName, surname, phoneNumber, name, city, street, streetNumber){
         
-        await axios.post(`${Const.API_URL}api/register`,{
+        await axios.post(`${Const.API_URL}api/registerDealer`,{
             login: login,
             email: email,
             password: password,
@@ -84,12 +84,12 @@ class RegisterDealerBox extends React.Component{
                     <Form.Row>
                         <Form.Group as={Col}>
                             <Form.Label>Login</Form.Label>
-                            <Form.Control placeholder="Enter login" type="login" name="login" id="login" value={this.state.values.login} onChange={this.handleChange} required />
+                            <Form.Control placeholder="Enter login" type="login" name="login" value={this.state.values.login} onChange={this.handleChange} required />
                         </Form.Group>
 
                         <Form.Group as={Col}>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control placeholder="Enter password" type="password" name="password" id="password" value={this.state.values.password} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter password" type="password" name="password" value={this.state.values.password} onChange={this.handleChange} required/>
                         </Form.Group>
 
                     </Form.Row>
@@ -97,47 +97,47 @@ class RegisterDealerBox extends React.Component{
                     <Form.Row>
                         <Form.Group as={Col}>
                             <Form.Label>Email</Form.Label>
-                            <Form.Control placeholder="Enter email" type="email" name="email" id="email" value={this.state.values.email} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter email" type="email" name="email" value={this.state.values.email} onChange={this.handleChange} required/>
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>Phone number</Form.Label>
-                            <Form.Control placeholder="Enter phone number" type="text" name="phoneNumber" id="phoneNumber" value={this.state.values.phoneNumber} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter phone number" type="text" name="phoneNumber" value={this.state.values.phoneNumber} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col}>
                             <Form.Label >First name</Form.Label>
-                            <Form.Control placeholder="Enter first name" type="text" name="firstName" id="firstName" value={this.state.values.firstName} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter first name" type="text" name="firstName" value={this.state.values.firstName} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridLastName">
                             <Form.Label >Last name</Form.Label>
-                            <Form.Control placeholder="Enter last name" type="text" name="surname" id="surname" value={this.state.values.surname} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter last name" type="text" name="surname" value={this.state.values.surname} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col}>
                             <Form.Label>Company name</Form.Label>
-                            <Form.Control placeholder="Enter company name" type="text" name="name" id="name" value={this.state.values.name} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter company name" type="text" name="name"value={this.state.values.name} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
                     
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridCity">
                             <Form.Label >City</Form.Label>
-                            <Form.Control placeholder="Enter city" type="city" name="city" id="city" value={this.state.values.city} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter city" type="city" name="city" value={this.state.values.city} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridStreet">
                             <Form.Label >Street</Form.Label>
-                            <Form.Control placeholder="Enter street" type="street" name="street" id="street" value={this.state.values.street} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter street" type="street" name="street" value={this.state.values.street} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridStreetNumber">
                             <Form.Label >Street number</Form.Label>
-                            <Form.Control placeholder="Enter street number" type="number" name="streetNumber" id="streetNumber" value={this.state.values.streetNumber} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter street number" type="number" name="streetNumber" value={this.state.values.streetNumber} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
 

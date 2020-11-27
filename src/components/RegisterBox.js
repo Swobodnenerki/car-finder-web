@@ -75,36 +75,36 @@ class RegisterBox extends React.Component{
                     <Form.Row>
                         <Form.Group as={Col} >
                             <Form.Label>Login</Form.Label>
-                            <Form.Control placeholder="Enter login" type="login" name="login" id="login" value={this.state.values.login} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter login" type="login" name="login" value={this.state.values.login} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} >
                             <Form.Label>Password</Form.Label>
-                            <Form.Control placeholder="Enter password" type="password" name="password" id="password" value={this.state.values.password} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter password" type="password" name="password" value={this.state.values.password} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col} >
                             <Form.Label>Email</Form.Label >
-                            <Form.Control placeholder="Enter email" type="email" name="email" id="email" value={this.state.values.email} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter email" type="email" name="email" value={this.state.values.email} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} >
                             <Form.Label>Phone number</Form.Label>
-                            <Form.Control placeholder="Enter phone number" type="text" name="phoneNumber" id="phoneNumber" value={this.state.values.phoneNumber} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter phone number" type="text" name="phoneNumber" value={this.state.values.phoneNumber} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
 
                     <Form.Row>
                         <Form.Group as={Col} >
                             <Form.Label >First name</Form.Label>
-                            <Form.Control placeholder="Enter first name" type="text" name="name" id="name" value={this.state.values.name} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter first name" type="text" name="name" value={this.state.values.name} onChange={this.handleChange} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} >
                             <Form.Label >Last name</Form.Label>
-                            <Form.Control placeholder="Enter last name" type="text" name="surname" id="surname" value={this.state.values.surname} onChange={this.handleChange} required/>
+                            <Form.Control placeholder="Enter last name" type="text" name="surname" value={this.state.values.surname} onChange={this.handleChange} required/>
                         </Form.Group>
                     </Form.Row>
                     <div style={{height: "20px"}}></div>
