@@ -49,6 +49,18 @@ class AdvertPage extends React.Component{
     updateState = (name, value) => {
         this.setState({ [name]: value });
       };
+    checkPrice = (listPrice, carPrice) => {
+      const difference = listPrice - carPrice;
+      if(difference>0){
+        return (<span >You can save: {difference} PLN</span>);
+      }
+      if(difference<0){
+        return (<span style={{color: 'red'}}>You are losing: {0-difference} PLN</span>);
+      }
+      if(difference == 0){
+        return (<span style={{color: 'white'}}>You are paying list price</span>);
+      }
+    } 
     render(){
         return(
             <div>
@@ -69,7 +81,7 @@ class AdvertPage extends React.Component{
                                 <img src={tile.url} alt={tile.price} style={{backgroundSize: 'cover',backgroundPosition: 'center'}}/>
                                 
                                 <GridListTileBar 
-                                title={<span >You can save: {this.state.price-tile.price} PLN</span>}
+                                title={this.checkPrice(this.state.price, tile.price)}
                                 />
                                 
                             </GridListTile>
